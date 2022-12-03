@@ -1,0 +1,20 @@
+5 C% = 0
+6 P% = 0
+10 REM #Set Array Length
+11 input "how many values"; Q%
+20 DIM V (Q%)
+30 REM #Work out answer 1
+31 REM #Read in values
+40 FOR I = 1 TO Q% STEP 1: input "Paste"; V(I): next I
+50 GOSUB 42069
+69 REM #Nice
+100 PRINT "Answer 1= " P%
+120 END
+42068 REM #Answer 1 Subroutine
+42069 FOR I = 1 TO Q% STEP 1: C% = V(I) + C%
+42080 IF V(I) > 0 THEN GOTO 42110
+42090 PRINT I " = " C%
+42100 IF C% > P% THEN : P% = C%
+42105 C% = 0
+42110 NEXT I
+42120 RETURN
