@@ -1,20 +1,40 @@
+4 W% = 0
 5 C% = 0
 6 P% = 0
+7 X% = 0
+8 Y% = 0
+9 Z% = 0
 10 REM #Set Array Length
 11 input "how many values"; Q%
 20 DIM V (Q%)
 30 REM #Work out answer 1
 31 REM #Read in values
-40 FOR I = 1 TO Q% STEP 1: input "Paste"; V(I): next I
+35 PRINT "Paste values and press ENTER"
+40 FOR I = 1 TO Q% STEP 1: input V(I): next I
 50 GOSUB 42069
+60 GOSUB 43069
 69 REM #Nice
 100 PRINT "Answer 1= " P%
+110 W% = X% + Y% + Z%
+115 PRINT "Answer 2= " W%
 120 END
 42068 REM #Answer 1 Subroutine
 42069 FOR I = 1 TO Q% STEP 1: C% = V(I) + C%
 42080 IF V(I) > 0 THEN GOTO 42110
-42090 PRINT I " = " C%
+42090 REM# Debuging Print - PRINT I " = " C%
 42100 IF C% > P% THEN : P% = C%
 42105 C% = 0
 42110 NEXT I
 42120 RETURN
+43068 REM #Answer 2 Subroutine
+43069 FOR I = 1 TO Q% STEP 1: C% = V(I) + C%
+43080 IF V(I) > 0 THEN GOTO 43120
+43082 REM# Debugging print - PRINT I " = " C%
+43083 IF X% = 0 THEN : Z% = C% : Y% = C% : X% = C%
+43085 REM # Three in the bed and the little one said "roll over"
+43090 IF C% > Z% THEN : X% = Y% :Y% = Z% : Z% = C% : GOTO 43115
+43100 IF C% > Y% THEN : X% = Y% : Y% = C% : GOTO 43115
+43110 IF C% > X% THEN : X% = C%
+43115 C% = 0
+43120 NEXT I
+43130 RETURN
