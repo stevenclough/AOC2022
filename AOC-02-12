@@ -1,0 +1,33 @@
+5 S% = 0
+10 REM Define array length and prompt to input values
+20 input "how many values"; Q%
+30 DIM VA (Q%)
+40 DIM VB (Q%)
+45 PRINT "Paste values and press ENTER"
+50 FOR I = 1 TO Q% STEP 1: input VA$(I): input VB$(I) : next I
+69 REM Nice
+90 FOR I = 1 TO Q STEP 1
+100 REM Rock subroutine
+110 IF VA(I) = A THEN GOSUB 3000 : GOTO 160
+120 REM Paper subroutine
+130 IF VA(I) = B THEN GOSUB 4000 : GOTO 160
+140 REM Scissors subroutine
+150 IF VA(I) = C THEN GOSUB 5000 : GOTO 160
+160 NEXT I
+170 PRINT "Answer A = " S%
+1000 END
+3000 REM Rock subroutine
+3010 IF VB (I) = X THEN S% = S% + 4
+3020 IF VB (I) = Y THEN S% = S% + 8
+3030 IF VB (I) = Z THEN S% = S% + 3
+3040 RETURN
+4000 REM Paper subroutine
+4010 IF VB (I) = X THEN S% = S% + 1
+4020 IF VB (I) = Y THEN S% = S% + 2
+4030 IF VB (I) = Z THEN S% = S% + 9
+4040 RETURN
+5000 REM Scissors subroutine
+5010 IF VB (I) = X THEN S% = S% + 7
+5020 IF VB (I) = Y THEN S% = S% + 2
+5030 IF VB (I) = Z THEN S% = S% + 3
+5040 RETURN
